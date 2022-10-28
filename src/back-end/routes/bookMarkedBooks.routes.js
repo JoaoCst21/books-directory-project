@@ -1,11 +1,7 @@
 import app from "../framework/framework.js";
-import controller from "../controller/user.controller.js";
+import controller from "../controller/bookMarkedBooks.controller.js";
 
 const router = app.createRouter();
-
-router.use((req, res) => {
-  console.log("subRoute Middleware");
-});
 
 router.route("/").get(controller.getAll).post(controller.create);
 

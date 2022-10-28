@@ -1,9 +1,9 @@
 // characters that makes the text been treated as a regex
-const arrRegexIndentifier = ["?", "+", "*", "(", ")"];
+const arrRegexIdentifier = ["?", "+", "*", "(", ")"];
 
 // check if the text is a regex or not
 const check = (text) => {
-  return arrRegexIndentifier.some((identifier) => text.includes(identifier));
+  return arrRegexIdentifier.some((identifier) => text.includes(identifier));
 };
 
 const checkParams = (regex) => {
@@ -22,6 +22,10 @@ const makeCrudMethod = (crudType) =>
     });
     this.objRegex[crudType][newRegex] = fn;
   };
+
+const objRegex = {
+  GET: {},
+};
 
 const get = makeCrudMethod("GET");
 const post = makeCrudMethod("POST");

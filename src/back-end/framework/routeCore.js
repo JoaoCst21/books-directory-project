@@ -6,7 +6,10 @@ const use = function (fn) {
 // creates a subRouter to handle Request from a specific route
 const useRoute = function (prefix, router) {
   this.arrMiddleware.push((req, res) => {
-    if (req.url.startsWith(prefix)) {
+    if (!req.url.startsWith(prefix)) return;
+
+    const url = req.url.slice(prefix.length);
+    if (url.startsWith("/") || url === "") {
       req.url = req.url.slice(prefix.length) || "/";
       router.handle(req, res);
     }

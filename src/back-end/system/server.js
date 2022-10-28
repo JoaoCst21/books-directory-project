@@ -2,6 +2,7 @@ import http from "http";
 import app from "../framework/framework.js";
 import routerBook from "../routes/book.routes.js";
 import routerUser from "../routes/user.routes.js";
+import routerBookmarked from "../routes/bookMarkedBooks.routes.js";
 
 const PORT = process.env | 3000;
 
@@ -22,21 +23,20 @@ const waitData = (req) => {
     });
   });
 };
-app.use(() => console.log("Working?"));
-app.use(async (req, res) => {
-  if (req.method !== "POST") return;
-  await waitData(req);
-  // console.log(req.body);
+app.use(async (req) => {
+  if (req.method === "POST" || req.method === "PUT") await waitData(req);
 });
+
+console.log(routerBookmarked);
 
 // routes
 app.useRoute("/user", routerUser);
 app.useRoute("/book", routerBook);
-app.post("/test", (req, res) => {
-  console.log(req.body, "body");
-  res.end("Test Working");
-});
-
+app.useRoute("/bookmarked", routerBookmarked);
+// app.get("*", (req, res) => {
+//   res.writeHead(404);
+//   res.end("NOT FOUND");
+// });
 // listen
 server.listen(PORT, () => {
   console.log(`Server on port ${PORT}`);

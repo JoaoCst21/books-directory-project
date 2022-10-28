@@ -20,7 +20,7 @@ const handle = async function (req, res) {
       // then the request is not valid, and it will go to the next regex
       if (arrRegex.length !== arrUrl.length) continue;
 
-      // if the regex is not a regex, then it will replace the params
+      // if the route is not a regex, then it will replace the params
       // with the url params and check if the new regex is equal to the url
       // if it is not equal then the request is not valid, and it will go to the next regex
       newRegex = checkIfParamsValid(arrRegex, arrUrl, req.url) || regex;

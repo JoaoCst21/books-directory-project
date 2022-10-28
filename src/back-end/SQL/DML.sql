@@ -14,3 +14,5 @@ CALL sp_book_create('The Silmarillion', 'J.R.R. Tolkien',
 CALL sp_book_create('The Fellowship of the Ring', 'J.R.R. Tolkien',
                     'The Fellowship of the Ring is the first volume of J. R. R. Tolkien\'s epic adventure The Lord of the Rings. It was published on 29 July 1954 in the United Kingdom by George Allen & Unwin, and in the United States by Houghton Mifflin Company on 21 October 1954. The book is 423 pages long and is followed by The Two Towers and The Return of the King.',
                     400, NOW());
+
+CALL sp_user_create('Joao', 'Castillo', 'Segundoa05', 'brandonjoao83@gmail.com');

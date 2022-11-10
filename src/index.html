@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap"
+	      rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="style.css">
+	<script defer type="module" src="controller.js"></script>
+	<title>Title</title>
+</head>
+<body>
+	<header class="header">
+		<h1>Library</h1>
+		<nav>
+			<ul>
+				<li>
+					<button id="button-sign-up" class="log-button cursor-pointer">Sign up</button>
+				</li>
+				<li>
+					<button id="button-sign-in" class="log-button cursor-pointer">Sign in</button>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main class="main">
+		<button class="addBook cursor-pointer">add Book</button>
+		<div class="books--container">
+			<div class="book">
+				<div class="title">The Lord of the Rings</div>
+				<div class="author">by J.R.R. Tolkien</div>
+				<div class="info">
+					<div class="pages--total">
+						800 pages
+					</div>
+					<i class="bi bi-bookmark cursor-pointer" title="Mark as Bookmarked"></i>
+				</div>
+				<div class="release-date">date released: 2022-10-23</div>
+				<div class="description">The Lord of the Rings is an epic high fantasy novel written by English author
+					and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The
+					Hobbit, but eventually developed into a much larger work. Written in stages between 1937 and 1949,
+					The Lord of the Rings is one of the best-selling novels ever written, with over 150 million copies
+					sold.
+				</div>
+			</div>
+		</div>
+	</main>
+	<form action="" id="form-post" class="form hidden">
+		<div class="form-title">
+			Insert new Book
+		</div>
+		<div class="inputs">
+			<input type="text" class="input" name="title" placeholder="title">
+			<input type="text" class="input" name="author" placeholder="author">
+			<input type="text" class="input" name="pages" placeholder="pages">
+			<input type="text" class="input" name="release-date" placeholder="release date">
+			<textarea name="description" class="textarea" cols="20" rows="5"></textarea>
+			<button type="submit" class="button-submit cursor-pointer">Submit</button>
+		</div>
+	</form>
+	<form action="" id="form-edit" class="form hidden"></form>
+	<form action="" id="form-sign-up" class="form hidden">
+		<div class="form-title">
+			Create Account
+		</div>
+		<div class="inputs">
+			<input type="text" class="input" name="name" placeholder="Name">
+			<input type="text" class="input" name="lastName" placeholder="lastName">
+			<input type="text" class="input" name="email" placeholder="email">
+			<input type="text" class="input" name="password" placeholder="password">
+			<button type="submit" class="button-submit cursor-pointer">Submit</button>
+		</div>
+	</form>
+	<form action="" id="form-sign-in" class="form hidden">
+		<div class="form-title">
+			Log in your account
+		</div>
+		<div class="inputs">
+			<input type="text" class="input" name="email" placeholder="email">
+			<input type="text" class="input" name="password" placeholder="password">
+			<button type="submit" class="button-submit cursor-pointer">Submit</button>
+		</div>
+	</form>
+	<div class="overlay hidden"></div>
+</body>
+</html>

@@ -1,0 +1,296 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(240, 238, 241);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  margin: 0;
+}
+
+* {
+  /*border: 1px solid black;*/
+}
+
+.books--container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+
+  /*height: 100%;*/
+  height: auto;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 90%;
+  gap: 20px;
+
+  padding-block: 20px;
+
+  /*background-color: blue;*/
+  /*border: 10px solid black;*/
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  /*left: 0;*/
+  z-index: 10;
+  /*flex-basis: 10%;*/
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  height: 100px;
+  background-color: white;
+}
+
+.header ul {
+  display: flex;
+
+  gap: 20px;
+  list-style: none;
+}
+
+.header .log-button {
+  border: none;
+  height: 30px;
+  padding-inline: 30px;
+
+  border-radius: 5px;
+}
+
+
+.addBook {
+  width: 5rem;
+  height: 2rem;
+  align-self: center;
+}
+
+.book {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  width: min(40ch, 100% - 2rem);
+
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.book > * {
+  padding: 0.3rem;
+  border: 1px solid black;
+}
+
+.book .title {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.book .author {
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.book .info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* media queries*/
+@media (max-width: 768px) {
+  .books--container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.book .description {
+  flex-grow: 1;
+}
+
+/*
+--------------------------
+*/
+.form {
+  /* use min to set width and height*/
+  --width: min(35ch, 100% - 4rem);
+  --height: clamp(45ch, 85% - 2rem, 50ch);
+  /*--width: 30%;*/
+  /*--height: 50%;*/
+
+  position: fixed;
+  top: calc(calc(100% - var(--height)) / 1.2); /*50%*/
+  left: calc(calc(100% - var(--width)) / 2); /*50%*/
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: var(--width);
+  height: var(--height);
+
+  background-color: rgb(10, 11, 13);
+  border-radius: 5px;
+
+  color: gray;
+}
+
+.form > * {
+  /*border: white 1px solid;*/
+}
+
+.form-title {
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+
+  width: 80%;
+  height: 20%;
+
+  font-size: 2rem;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 100%;
+  height: 70%;
+}
+
+.form .input, .form .textarea {
+  width: 90%;
+  padding: .7rem;
+
+  background-color: rgb(23, 24, 29);
+  color: inherit;
+  border: none;
+  border-radius: 5px;
+}
+
+.form .input:focus, .form .textarea:focus {
+  outline: none;
+}
+
+.button-submit, .button-remove {
+  width: 90%;
+  padding: .8rem;
+
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(202, 151, 62);
+}
+
+.button-remove {
+  background-color: rgb(202, 62, 62);
+}
+
+.button-delete {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+
+  width: 40px;
+  height: 40px;
+
+  background-color: rgb(23, 24, 29);
+  border-radius: 50%;
+}
+
+.button-delete:before, .button-delete:after {
+  content: "";
+  position: absolute;
+  left: 45%;
+
+  width: 4px;
+  height: 80%;
+
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.button-delete:before {
+  rotate: 135deg;
+}
+
+.button-delete:after {
+  rotate: 45deg;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+}
+
+.book--edit {
+  --square: 40px;
+  position: absolute;
+
+  top: -5%;
+  left: 90%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: var(--square);
+  height: var(--square);
+
+  border-radius: 50%;
+  background-color: rgb(202, 151, 62);
+}
+
+#form-sign-up {
+  --width: min(35ch, 100% - 4rem);
+  --height: min(35ch, 85% - 2rem);
+
+  top: calc(calc(100% - var(--height)) / 2); /*50%*/
+}
+
+#form-sign-in .form-title {
+  height: 40%;
+}
+
+#form-sign-in {
+  --width: min(35ch, 100% - 4rem);
+  --height: min(25ch, 85% - 2rem);
+
+  top: calc(calc(100% - var(--height)) / 2); /*50%*/
+
+  padding-block: 10px;
+}
